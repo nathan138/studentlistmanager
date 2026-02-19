@@ -1,3 +1,5 @@
+import csv
+
 class StudentService:
 
     def printList(self) -> None:
@@ -11,7 +13,11 @@ class StudentService:
     def removeStudent(self, student_id: int) -> None:
         """Supprime un étudiant par son id"""
         pass
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/feature/export-b
 class StudentService:
     
     def __init__(self):
@@ -40,3 +46,19 @@ def exportCSV(self, file_path):
         for student_id, name in self.students.items():
             f.write(f"{student_id},{name}\n")
     print("Export CSV completed.")
+
+# Export en CSV
+    def export_csv(self, filename):
+        with open(filename, 'w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(['id', 'nom'])
+            for id, name in self.students.items():
+                writer.writerow([id, name])
+
+# Méthode générique pour choisir le format
+    def export(self, filename, format='json'):
+        if format.lower() == 'csv':
+            self.export_csv(filename)
+        else:
+            self.export_json(filename)
+
