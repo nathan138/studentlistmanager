@@ -13,11 +13,7 @@ class StudentService:
     def removeStudent(self, student_id: int) -> None:
         """Supprime un étudiant par son id"""
         pass
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> origin/feature/export-b
 class StudentService:
     
     def __init__(self):
