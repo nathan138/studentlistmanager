@@ -33,3 +33,10 @@ class StudentService:
             print(f"Student with id '{student_id}' removed.")
         else:
             print("Student not found.")
+
+            
+def exportCSV(self, file_path):
+    with open(file_path, "w") as f:
+        for student_id, name in self.students.items():
+            f.write(f"{student_id},{name}\n")
+    print("Export CSV completed.")

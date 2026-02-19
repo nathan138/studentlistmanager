@@ -34,8 +34,22 @@ def main():
         addStudent(int(sys.argv[2]), sys.argv[3])
     elif cmd == "remove" and len(sys.argv) == 3:
         removeStudent(int(sys.argv[2]))
+    elif cmd == "export" and len(sys.argv) == 4:
+        if sys.argv[2] == "json":
+            exportJSON(sys.argv[3])
+        else:
+            print("Format d'export invalide.")
     else:
         print("Commande invalide ou arguments manquants.")
 
 if __name__ == "__main__":
     main()
+
+import json
+def exportJSON(file_path):
+    data = [{"id": s.id, "nom": s.nom} for s in students]
+
+    with open(file_path, "w") as f:
+        json.dump(data, f, indent=4)
+
+    print("Export JSON terminé.")
